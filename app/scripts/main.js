@@ -1,11 +1,11 @@
 /* eslint no-console:0 */
 /* global THREE */
 
-import fps from 'fps'
-import setup from './lib/setup'
+import fps from 'fps';
+import setup from './lib/setup';
 
 if (typeof global.THREE === 'undefined') {
-  window.THREE = require('three')
+  window.THREE = require('three');
 }
 var ticker = fps({
   every: 10   // update every 10 frames

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "eslint:vim": "eslint --report-unused-disable-directives",
     "build:css": "cssjoin app/styles/main.css | autoprefixer -b 'last 2 versions' | cssmin > dist/main.css",
     "build:html": "catw 'app/index.html' -o dist/index.html -v",
     "serve": "http-server -p 9999 dist/",
@@ -12,7 +13,7 @@
     "watch:css": "nodemon --watch app/styles/ -e css -x \"npm run build:css\"",
     "watch": "mkdir -p & npm run serve & npm run watch:js & npm run build:html",
     "build": "mkdir -p dist & npm run build:html & npm run build:js",
-    "lint": "esw -c ./.eslintrc.json app/scripts -w",
+    "lint": "esw -c ./.eslintrc app/scripts -w",
     "lint:fix": "eslint app/scripts/ --fix",
     "dev": "npm run lint & npm run watch"
   },
@@ -36,8 +37,6 @@
     "catw": "^0.2.0",
     "cssjoin": "^0.3.1",
     "cssmin": "^0.4.3",
-    "eslint": "^3.18.0",
-    "eslint-watch": "^3.0.1",
     "fps": "0.0.3",
     "gl-shader": "^4.2.1",
     "glslify": "^6.0.2",
