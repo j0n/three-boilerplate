@@ -15,7 +15,7 @@
     "build": "mkdir -p dist & npm run build:html & npm run build:js",
     "lint": "esw -c ./.eslintrc app/scripts -w",
     "lint:fix": "eslint app/scripts/ --fix",
-    "dev": "npm run lint & npm run watch"
+    "dev": "npm run watch"
   },
   "browserify": {
     "transform": [

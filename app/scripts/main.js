@@ -3,30 +3,28 @@
 
 import fps from 'fps';
 import setup from './lib/setup';
+import { Clock, DirectionalLight } from 'three';
 
-if (typeof global.THREE === 'undefined') {
-  window.THREE = require('three');
-}
-var ticker = fps({
-  every: 10   // update every 10 frames
-})
+const ticker = fps({
+  every: 10,   // update every 10 frames
+});
 
-var { camera, scene, renderer } = setup();
-const clock = new THREE.Clock();
+const { camera, scene, renderer } = setup();
+const clock = new Clock();
 
 
-var light = new THREE.DirectionalLight(0xffffff );
+const light = new DirectionalLight(0xffffff );
 light.position.set(0, 0, 1 );
 scene.add(light);
 
 
-function animate () {
-  ticker.tick()
+const animate = () => {
+  ticker.tick();
   /*eslint no-unused-vars: 0 */
   const delta = clock.getDelta();
-  renderer.render(scene, camera)
-  requestAnimationFrame(animate)
-}
+  renderer.render(scene, camera);
+  requestAnimationFrame(animate);
+};
 
 // Start animating
-animate()
+animate();
