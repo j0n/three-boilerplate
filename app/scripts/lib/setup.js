@@ -6,36 +6,36 @@ if (typeof global.THREE === 'undefined') {
 // var OrbitControls = require('three-orbit-controls')(THREE);
 const createControls = require('orbit-controls');
 
-module.exports = setup
+module.exports = setup;
 
 function setup (opt = {}) {
   // Scale for retina
   const dpr = window.devicePixelRatio
   // Our WebGL renderer with alpha and device-scaled
   const renderer = new THREE.WebGLRenderer(Object.assign({
-    antialias: true // default enabled
+    antialias: true, // default enabled
   }, opt))
-  renderer.setClearColor(0xf0f0f0)
-  renderer.setPixelRatio(dpr)
+  renderer.setClearColor(0xf0f0f0);
+  renderer.setPixelRatio(dpr);
 
   // Add the <canvas> to DOM body
-  const canvas = renderer.domElement
+  const canvas = renderer.domElement;
   // const base = document.getElementById(opt.div)
-  document.body.appendChild(canvas)
+  document.body.appendChild(canvas);
 
   // perspective camera
-  const near = 1
-  const far = 3000
-  const fieldOfView = 65
+  const near = 1;
+  const far = 2000;
+  const fieldOfView = 25;
 
-  const width = window.innerWidth
-  const height = window.innerHeight
-  const aspect = width / height
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  const aspect = width / height;
   const camera = new THREE.PerspectiveCamera(fieldOfView, aspect, near, far)
-  const target = new THREE.Vector3()
-  camera.position.z = 3
+  const target = new THREE.Vector3();
+  camera.position.z = 10;
 
-  renderer.setClearColor(0xf0f0f0)
+  renderer.setClearColor(0xf0f0f0);
   renderer.setPixelRatio(window.devicePixelRatio)
   renderer.setSize(window.innerWidth, window.innerHeight)
   // var controls = OrbitControls(camera, renderer.domElement);
